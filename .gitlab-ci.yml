@@ -1,0 +1,13 @@
+test:
+  stage: test
+  image: docker:19.03.1
+  services:
+    - docker:dind
+  parallel:
+    matrix:
+    - COMMAND:
+      - echo "hello world"
+      - "bin/gradle init"
+  variables:
+    DOCKER_OPTS: "--interactive"
+  script: $COMMAND

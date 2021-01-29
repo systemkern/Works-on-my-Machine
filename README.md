@@ -24,6 +24,11 @@ _Woomm_ aims to remove the hurdle of different versions, operating systems, CPU 
 Commands
 --------------------
 
+### Gradle
+`bin/gradle`
+
+Uses the official Gradle image and outputs the build artiacts as exepected to ./build.
+Can be used to replace gradlew
 
 
 Contribution
