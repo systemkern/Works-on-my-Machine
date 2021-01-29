@@ -1,6 +1,8 @@
 Woomm
 ====================
 
+<center><img src="public/logo/woomm.png" width="150" height="150"></center>
+
 TLDR; Dockerize your apps in order to standardize different build and CI/CD environments.
 
 Throughout my career, I have seen too many times the struggle standardizing developers' build environments. Be it, team members, using slightly different versions of libraries or frameworks or figuring out why builds work locally but fail in the CI pipeline.
