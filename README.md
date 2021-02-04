@@ -4,7 +4,7 @@
 
 
 Works on my machine ¯\\(ツ)/¯
-====================
+=============================
 
 <center><img src="public/logo/woomm.png" width="150" height="150"></center>
 
@@ -47,3 +47,7 @@ Contributions of new commands via Merge Request are highly appreciated
 
 If you want to request an app or a tool that is not part of this collection, feel free to request it via a ticket right here on Gitlab
 
+
+Is it any good?
+--------------------
+[Yes](https://news.ycombinator.com/item?id=3067434)
