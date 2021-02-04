@@ -1,4 +1,9 @@
-Woomm
+[![Source Repo](https://img.shields.io/badge/fork%20on-gitlab-important?logo=gitlab)](https://gitlab.com/systemkern/works-on-my-machine)
+[![Gitlab Pipelines](https://gitlab.com/systemkern/works-on-my-machine/badges/master/pipeline.svg)](https://gitlab.com/systemkern/works-on-my-machine/-/pipelines)
+[![Twitter @systemkern](https://img.shields.io/badge/follow-%40systemkern-blue?logo=twitter)](https://twitter.com/systemkern)
+
+
+Works on my machine ¯\\(ツ)/¯
 ====================
 
 <center><img src="public/logo/woomm.png" width="150" height="150"></center>
@@ -7,7 +12,7 @@ TLDR; Dockerize your apps in order to standardize different build and CI/CD envi
 
 Throughout my career, I have seen too many times the struggle standardizing developers' build environments. Be it, team members, using slightly different versions of libraries or frameworks or figuring out why builds work locally but fail in the CI pipeline.
 
-> But it **Wo**rks **o**n **m**y **m**achine
+> But it Works on my machine
 
 The dreaded phrase, sometimes whispered in despair, sometimes shouted angrily through the engineering department's hallways. 
 
