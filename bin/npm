@@ -2,7 +2,6 @@
 # This shell script provides a predictable docker-based version of the application in use.
 # Thereby creating a predictable environment for development, building, and debugging
 
-# This image must correspond with the base image in web/Dockerfile
 IMAGE="node:14.15.0"
 COMMAND="npm"
 

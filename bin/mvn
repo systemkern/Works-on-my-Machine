@@ -2,8 +2,8 @@
 # This shell script provides a predictable docker-based version of the application in use.
 # Thereby creating a predictable environment for development, building, and debugging
 
-IMAGE="gradle:6.8-jdk8"
-COMMAND="gradle"
+IMAGE="maven:3.6.3-jdk-11-slim"
+COMMAND="mvn"
 
 export DOCKER_OPTS="${DOCKER_OPTS:--it}"
 
@@ -14,19 +14,21 @@ if [ "$(uname -s)" != "Darwin" ] && [ "$(expr substr "$(uname -s)" 1 5)" = "Linu
   LINUX_OPTS="--user $(id -u)"
 fi
 
-# Disable the Gradle daemon for Continuous Integration servers as correctness
-# is usually a priority over speed in CI environments. Using a fresh
-# runtime for each build is more reliable since the runtime is completely
-# isolated from any previous builds.
-export GRADLE_OPTS="${GRADLE_OPTS--Dorg.gradle.daemon=false}"
+# Check if there exists a local maven repository on the host machine
+# Create if not present
+[ -d "$HOME/.m2" ] || mkdir "$HOME/.m2"
 
-
+# This docker command publishes port 3000 for serving react apps
+# You can access your app at http://localhost:3000
+# If you server uses different ports you can publish them as needed
 exec docker run --rm ${LINUX_OPTS:-} "$DOCKER_OPTS"   \
-  --network=host --name gradle                        \
+  --network host                                      \
+  --env MAVEN_CONFIG=/var/maven/.m2                   \
   --volume  /var/run/docker.sock:/var/run/docker.sock \
-  --volume  gradle:/home/gradle/.gradle               \
+  --volume "$HOME/.m2:/var/maven/.m2"                 \
   --volume  "$(pwd)":"$(pwd)"                         \
   --workdir "$(pwd)"                                  \
-  --env GRADLE_OPTS="$GRADLE_OPTS"                    \
+  --publish 3000:3000                                 \
+  --publish 443:443                                   \
+  --publish 80:80                                     \
   "$IMAGE" "$COMMAND" "$@"
-

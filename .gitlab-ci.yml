@@ -6,8 +6,8 @@ test:
   parallel:
     matrix:
     - COMMAND:
-      - echo "hello world"
       - "bin/gradle init"
+      - "bin/mvn -version"
       - "bin/npm -version"
   variables:
     DOCKER_OPTS: "--interactive"
