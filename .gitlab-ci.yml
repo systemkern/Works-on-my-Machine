@@ -8,6 +8,7 @@ test:
     - COMMAND:
       - echo "hello world"
       - "bin/gradle init"
+      - "bin/npm -version"
   variables:
     DOCKER_OPTS: "--interactive"
   script: $COMMAND

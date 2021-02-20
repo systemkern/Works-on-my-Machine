@@ -25,7 +25,7 @@ LINUX_OPTS="${LINUX_OPTS-}"
 export GRADLE_OPTS="${GRADLE_OPTS--Dorg.gradle.daemon=false}"
 
 
-exec docker run --rm $DOCKER_OPTS $LINUX_OPTS         \
+exec docker run --rm ${LINUX_OPTS:-} "$DOCKER_OPTS"   \
   --network=host --name gradle                        \
   --volume  /var/run/docker.sock:/var/run/docker.sock \
   --volume  gradle:/home/gradle/.gradle               \
