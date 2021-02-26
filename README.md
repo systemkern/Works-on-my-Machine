@@ -6,7 +6,7 @@
 Works on my machine ¯\\(ツ)/¯
 =============================
 
-<center><img src="public/logo/woomm.png" width="150" height="150"></center>
+<center><img src="public/works-on-my-machine-logo.png" width="150" height="150"></center>
 
 TLDR; Dockerize your apps in order to standardize different build and CI/CD environments.
 
@@ -21,19 +21,29 @@ I have seen project teams setting up heavyweight developer VMs, which were share
 I have seen developers arguing over one differences essential tool between different operating systems and venting their frustration during the team meetings.
 
 ### Dockerizing environments
-_Woomm_ is a simple collection of dockerized CLI commands that help standardize your CLI environment between different execution environments.
+The _Works on my machine_ repo is a collection of dockerized CLI commands that help standardize your CLI environment between different execution environments.
 
-_Woomm_ aims to remove the hurdle of different versions, operating systems, CPU architectures and configurations, in the end, improving developer satisfaction and productivity.
+_Works on my machine_ aims to remove the hurdle of different versions, operating systems, CPU architectures and configurations, in the end, improving developer satisfaction and productivity.
 
 
 Commands
 --------------------
 
 ### Gradle
-`bin/gradle`
+`bin/gradle -version`
 
 Uses the official Gradle image and outputs the build artiacts as exepected to ./build.
 Can be used to replace gradlew
+
+### Hugo
+> The world’s fastest framework for building websites
+
+`bin/hugo version`
+
+[https://gohugo.io/](https://gohugo.io/)
+
+### Npm
+`bin/npm -version`
 
 
 Contribution

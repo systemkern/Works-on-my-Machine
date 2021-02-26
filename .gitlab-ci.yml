@@ -6,7 +6,7 @@ test:
   parallel:
     matrix:
     - COMMAND:
-      - "bin/gradle init"
+      - "bin/gradle -version"
       - "bin/mvn -version"
       - "bin/npm -version"
   variables:

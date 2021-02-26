@@ -5,12 +5,15 @@
 IMAGE="gradle:6.8-jdk8"
 COMMAND="gradle"
 
+# Bash parameter expansion will only replace _null_ with --interactive --tty
+# the first "-" is for configuring the expansion mode
 export DOCKER_OPTS="${DOCKER_OPTS:--it}"
 
-# --user and --group-add options simulate the current user inside the docker container
-# this is necessary because otherwise the npm command would run as root inside docker
-# and the 'node_modules' folder on the host would then belong to host:$(pwd)/root:root
-if [ "$(uname -s)" != "Darwin" ] && [ "$(expr substr "$(uname -s)" 1 5)" = "Linux" ]; then
+# the expr substr command has a different syntax on OSX
+if [ "$(uname)" != "Darwin" ] && [ "$(expr substr "$(uname -s)" 1 5)" = "Linux" ]; then
+  # --user and --group-add options simulate the current user inside the docker container
+  # this is necessary because otherwise the command would run as root inside docker
+  # and created files and folder on the host would then belong to host:$(pwd)/root:root
   LINUX_OPTS="--user $(id -u)"
 fi
 
