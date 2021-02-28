@@ -1,4 +1,4 @@
-test:
+test shell wrappers:
   stage: test
   image: docker:19.03.1
   services:
@@ -7,6 +7,7 @@ test:
     matrix:
     - COMMAND:
       - "bin/gradle -version"
+      - "bin/hugo version"
       - "bin/mvn -version"
       - "bin/npm -version"
   variables:

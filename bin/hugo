@@ -2,7 +2,9 @@
 # This shell script provides a predictable docker-based version of the application in use.
 # Thereby creating a predictable environment for development, building, and debugging
 
-IMAGE="systemkern/hugo-builder:0.81.0"
+# Klakegg image recommended in official Hugo documentation
+# https://gohugo.io/getting-started/installing/#docker
+IMAGE="klakegg/hugo:0.81.0-ext-alpine-ci"
 COMMAND="hugo"
 
 # Bash parameter expansion will only replace _null_ with --interactive --tty
@@ -16,12 +18,8 @@ if [ "$(uname -s)" != "Darwin" ] && [ "$(expr substr "$(uname -s)" 1 5)" = "Linu
   LINUX_OPTS="--user $(id -u)"
 fi
 
-# This docker command publishes port 3000 for serving the hugo development server
-# You can access your app at http://localhost:1313
-# If you server uses different ports you can publish them as needed
-# Also this command adds the "bind" flag in order to make to make hugo server availible via network
 exec docker run --rm ${LINUX_OPTS:-} "$DOCKER_OPTS"   \
   --volume  "$(pwd)":"$(pwd)"                         \
   --workdir "$(pwd)"                                  \
   --publish 1313:1313                                 \
-  "$IMAGE" "$COMMAND" "$@" --bind=0.0.0.0
+  "$IMAGE" "$COMMAND" "$@"

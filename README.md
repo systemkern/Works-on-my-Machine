@@ -1,6 +1,8 @@
 [![Source Repo](https://img.shields.io/badge/fork%20on-gitlab-important?logo=gitlab)](https://gitlab.com/systemkern/works-on-my-machine)
 [![Gitlab Pipelines](https://gitlab.com/systemkern/works-on-my-machine/badges/master/pipeline.svg)](https://gitlab.com/systemkern/works-on-my-machine/-/pipelines)
 [![Twitter @systemkern](https://img.shields.io/badge/follow-%40systemkern-blue?logo=twitter)](https://twitter.com/systemkern)
+[![LinkedIn @systemkern](https://img.shields.io/badge/contact%20me-%40systemkern-blue?logo=linkedin)](https://linkedin.com/in/systemkern)
+
 
 
 Works on my machine ¯\\(ツ)/¯
@@ -30,20 +32,21 @@ Commands
 --------------------
 
 ### Gradle
-`bin/gradle -version`
+`bin/gradle`
 
 Uses the official Gradle image and outputs the build artiacts as exepected to ./build.
 Can be used to replace gradlew
 
 ### Hugo
-> The world’s fastest framework for building websites
-
-`bin/hugo version`
-
 [https://gohugo.io/](https://gohugo.io/)
 
+> The world’s fastest framework for building websites
+
+`bin/hugo`
+The default Hugo command used for building your static site
+
 ### Npm
-`bin/npm -version`
+`bin/npm `
 
 
 Contribution
