@@ -11,15 +11,12 @@ COMMAND="hugo"
 # the first "-" is for configuring the expansion mode
 export DOCKER_OPTS="${DOCKER_OPTS:--it}"
 
-# --user and --group-add options simulate the current user inside the docker container
-# this is necessary because otherwise the npm command would run as root inside docker
-# and the 'node_modules' folder on the host would then belong to host:$(pwd)/root:root
-if [ "$(uname -s)" != "Darwin" ] && [ "$(expr substr "$(uname -s)" 1 5)" = "Linux" ]; then
-  LINUX_OPTS="--user $(id -u)"
+# Publish the server port if hugo is started in local dev mode
+if [ $1 = server ]; then
+    DOCKER_OPTS="--publish 1313:1313"
 fi
 
-exec docker run --rm ${LINUX_OPTS:-} "$DOCKER_OPTS"   \
-  --volume  "$(pwd)":"$(pwd)"                         \
-  --workdir "$(pwd)"                                  \
-  --publish 1313:1313                                 \
+exec docker run --rm $DOCKER_OPTS \
+  --volume  "$(pwd)":"$(pwd)"     \
+  --workdir "$(pwd)"              \
   "$IMAGE" "$COMMAND" "$@"
