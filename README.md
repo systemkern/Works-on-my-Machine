@@ -35,6 +35,12 @@ _Works on my machine_ aims to remove the hurdle of different versions, operating
 Commands
 --------------------
 
+### Curl
+
+`bin/curl`
+
+Uses the image `curlimages/curl`
+
 ### Gradle
 `bin/gradle`
 

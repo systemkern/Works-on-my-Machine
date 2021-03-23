@@ -6,6 +6,7 @@ test shell wrappers:
   parallel:
     matrix:
     - COMMAND:
+      - "bin/curl --help"
       - "bin/gradle -version"
       - "bin/hugo version"
       - "bin/mvn -version"
